@@ -15,23 +15,27 @@
         <%= f.email_field :email %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
+      <%if @sns_id.present? %>
+        <%= hidden_field_tag :sns_auth, true %>
+      <% else %>
+        <div class="field">
+          <%= f.label :password %>
+          <% @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
+          <br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+      <% end %>
 
       <div class="actions">
         <%= f.submit "Sign up" %>
       </div>
-      
+
       <%= link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, method: :post%>
     <% end %>
   </div>
