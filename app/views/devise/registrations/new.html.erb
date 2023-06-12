@@ -1,0 +1,42 @@
+<div class="contents row">
+  <div class="container">
+  <%= render "shared/header" %>
+  
+    <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+       <div class="field">
+        <%= f.label :nickname %> <em>(6 characters maximum)</em><br />
+        <%= f.text_field :nickname, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
+      </div>
+
+      <%if @sns_id.present? %>
+        <%= hidden_field_tag :sns_auth, true %>
+      <% else %>
+        <div class="field">
+          <%= f.label :password %>
+          <% @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+
+      <%= link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, class: "text-decoration-none, btn btn-outline-danger", method: :post%>
+    <% end %>
+  </div>
+</div>

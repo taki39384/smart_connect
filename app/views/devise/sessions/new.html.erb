@@ -1,0 +1,30 @@
+<div class="contents row">
+  <div class="container">
+  <%= render "shared/header" %>
+
+    <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.label :remember_me %><br />
+          <%= f.check_box :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions">
+        <%= f.submit "Log in" %>
+      </div>
+
+      <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, class: "text-decoration-none, btn btn-outline-danger", method: :post%>
+    <% end %>
+  </div>
+</div>
