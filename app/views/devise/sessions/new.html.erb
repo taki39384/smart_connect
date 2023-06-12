@@ -1,7 +1,7 @@
 <div class="contents row">
   <div class="container">
   <%= render "shared/header" %>
-    <h2>Log in</h2>
+
     <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <div class="field">
         <%= f.label :email %><br />
@@ -24,7 +24,7 @@
         <%= f.submit "Log in" %>
       </div>
 
-      <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post%>
+      <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, class: "text-decoration-none, btn btn-outline-danger", method: :post%>
     <% end %>
   </div>
 </div>

@@ -21,4 +21,7 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end
+
+  validates :nickname, presence: true
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "must be alphanumeric with at least one letter and one number" }
 end
