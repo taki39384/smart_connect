@@ -13,7 +13,7 @@
     
 
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -38,25 +38,26 @@
 <main>
   <div class="container py-4">
     <%= render "shared/header" %>
-    <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">SMART CONNECT</h1>
-
-      </div>
-    </div>
+    
 
     <div class="row align-items-md-stretch">
-      <div class="col-md-6">
-        <div class="h-100 p-5 text-white bg-dark rounded-3">
-          <h2>Google Calendar</h2>
-          <%= link_to "Add to", new_task_path, class: "text-decoration-none, btn btn-outline-secondary" %>
-        </div>
-      </div>
       <div class="col-md-6">
         <div class="h-100 p-5 bg-light border rounded-3">
           <h2>Notion</h2>
           <%= link_to "Add to", class: "text-decoration-none, btn btn-outline-secondary" %>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+          <h2>Calendar</h2>
+          <%= link_to "Add to", new_task_path, class: "text-decoration-none, btn btn-outline-secondary" %>
+        </div>
+      </div>
+    </div>
+    <div class="p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">TEAM GOAL</h1>
+        <%= render "tasks/goals-form" %>
       </div>
     </div>
 
