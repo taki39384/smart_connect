@@ -1,8 +1,13 @@
 <div class="main">
+  <%= render "shared/header" %>
   <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">新規イベント投稿</h2>
+    <div class="form__wrapper d-flex">
+      <div class="page-heading">
         <%= render partial: "form" %>
+      </div>
+      <div class="calendar">
+        <%= render partial: "tasks/calendar" %>
+      </div>
     </div>
   </div>
 </div>

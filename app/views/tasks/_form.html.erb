@@ -1,17 +1,21 @@
 <%= form_with(model: @task, local: true) do |f| %>
   <div class="field">
-    <%= f.label :title, "タイトル" %><br />
+    <%= f.label :title, "キャンペーン名" %><br />
     <%= f.text_field :title, id:"title" %>
   </div>
   <div class="field">
-    <%= f.label :content, "コンタクト" %><br />
+    <%= f.label :content, "キャンペーン内容" %><br />
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :start_time, "日時" %><br />
+    <%= f.label :start_time, "キャンペーン日時" %><br />
     <%= f.datetime_select :start_time %>
   </div>
+  <div class="field">
+  <%= f.label :mobile_id, "携帯キャリア" %><br />
+  <%= f.collection_select(:mobile_id, Mobile.all, :id, :Mobile, {}, {class:"select-box"}) %>
+  </div>
   <div class="actions">
-    <%= f.submit "保存する", class: :form__btn %>
+    <%= f.submit "SEND", class: :form__btn %>
   </div>
 <% end %>
