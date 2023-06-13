@@ -3,6 +3,11 @@ class Task < ApplicationRecord
     validates :mobile_id
   end
 
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :mobile_id, presence: true
+  validates :start_time, presence: true
+
   belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
