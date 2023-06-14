@@ -169,12 +169,6 @@
   margin: 0;
 }
 
-/* レスポンシブ */
-.form__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 
 
 /* 詳細ページ */

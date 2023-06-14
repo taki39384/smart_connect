@@ -1,15 +1,15 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:edit, :update, :show, :destroy]
   
   def index
+    @tasks = Task.all
   end
 
   def new
-    @tasks = Task.all
     @task =Task.new
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def create
@@ -23,11 +23,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
     if @task.update(task_params)
       redirect_to root_path
     else
@@ -35,9 +33,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task.destroy
+    redirect_to root_path
+  end
+
 
   private
   def task_params
     params.require(:task).permit(:title, :content, :start_time, :end_time, :mobile_id, :image).merge(user_id: current_user.id)
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
   end
 end
