@@ -1,19 +1,38 @@
 <%= form_with(model: @task, local: true) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="field">
     <%= f.label :title, "キャンペーン名" %><br />
-    <%= f.text_field :title, id:"title" %>
+    <%= f.text_field :title, id: "title" %>
   </div>
   <div class="field">
     <%= f.label :content, "キャンペーン内容" %><br />
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :start_time, "キャンペーン日時" %><br />
-    <%= f.datetime_select :start_time %>
+    <%= f.label :start_time, "キャンペーン開始日" %><br />
+    <%= f.date_select :start_time %>
   </div>
   <div class="field">
-  <%= f.label :mobile_id, "携帯キャリア" %><br />
-  <%= f.collection_select(:mobile_id, Mobile.all, :id, :Mobile, {}, {class:"select-box"}) %>
+    <%= f.label :end_time, "キャンペーン終了日" %><br />
+    <%= f.date_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile_id, "携帯キャリア" %><br />
+    <%= f.collection_select(:mobile_id, Mobile.all, :id, :Mobile, {}, {class: "select-box"}) %>
+  </div>
+    <div class="field">
+    <%= f.label :image, "キャンペーンの画像" %><br />
+    <%= f.file_field :image, id:"task_image" %>
   </div>
   <div class="actions">
     <%= f.submit "SEND", class: :form__btn %>
