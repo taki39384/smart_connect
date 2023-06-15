@@ -4,7 +4,7 @@
 
     <% tasks.each do |task| %>
       <div>
-        <%= link_to "#{task.title} - #{Mobile.find_by(id: task.mobile_id)&.Mobile}", task, style: "text-decoration: none; font-size: small; color: black;" %>
+        <%= link_to "#{Mobile.find_by(id: task.mobile_id)&.Mobile}", task, style: "text-decoration: none; font-size: small; color: black;" %>
       </div>
     <% end %>
   <% end %>
