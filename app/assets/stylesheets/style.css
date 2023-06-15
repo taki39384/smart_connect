@@ -172,50 +172,223 @@
 
 
 /* 詳細ページ */
-.prototype__wrapper{
+.prototype__wrapper {
   min-height: calc(100vh - 161px);
 }
-.prototype__hedding{
+
+.prototype__hedding {
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 16px;
 }
-.prototype__user{
-  display: block;
+
+.prototype__user {
   font-size: 16px;
   color: #999;
   text-align: center;
   text-decoration: underline;
+  margin-bottom: 16px;
 }
-.prototype__image{
-  width: 40%;
+
+.prototype__image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
   margin: 0 auto;
   padding: 16px 0;
+  background-color: #eaf6ff;
+  border-radius: 4px;
 }
-.prototype__detail{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+
+.prototype__image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.prototype__detail {
+  text-align: center;
   margin-bottom: 8px;
 }
-.detail__title{
+
+.detail__title {
   font-size: 20px;
   font-weight: bold;
+  margin-bottom: 8px;
 }
-.prototype__manage{
+
+.prototype__manage {
   display: flex;
   justify-content: center;
   padding-top: 16px;
 }
-.prototype__btn{
-  display: block;
-  padding: 0.4em 1.6em;
-  font-size: 0.4em;
-  color: #999;
+
+.prototype__btn {
+  display: inline-block;
+  padding: 0.5em 1.5em;
+  font-size: 16px;
+  color: #fff;
   text-decoration: none;
   user-select: none;
-  border: 1px #999 solid;
+  border: none;
   border-radius: 3px;
   transition: 0.4s ease;
   margin: 0 4px;
+  background-color: #999;
+  cursor: pointer;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 767px) {
+  .prototype__image {
+    width: 80%;
+    max-width: 300px;
+  }
+}
+
+
+/* 検索フォーム */
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 32px;
+}
+
+.search-form .search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-form .search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-form .search-btn:hover {
+  background-color: #0056b3;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-form .search-input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .search-form .search-btn {
+    width: 100%;
+  }
+}
+
+
+
+/* 共通スタイル */
+.form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #e8f6fe;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.form-main {
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.form__label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.form__input,
+.form__textarea,
+.form__select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.form__textarea {
+  min-height: 200px;
+}
+
+.select-box {
+  position: relative;
+}
+
+.select-box::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  background-color: #6cb2eb;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.form__input[type="file"] {
+  background-color: #f6f6f6;
+  border: none;
+}
+
+.form__btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #6cb2eb;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: 10px;
+  }
+
+  .form__label {
+    font-size: 16px;
+  }
+
+  .form__input,
+  .form__textarea,
+  .form__select {
+    font-size: 14px;
+  }
 }

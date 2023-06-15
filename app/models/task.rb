@@ -12,6 +12,14 @@ class Task < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
+  def self.search(search)
+    if search != ""
+      Task.where('title LIKE(?)', "%#{search}%")
+    else
+      Task.all
+    end
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :mobile
 end

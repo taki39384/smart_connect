@@ -1,29 +1,33 @@
-<%= form_with(model: @task, local: true) do |f| %>
-  <div class="field">
-    <%= f.label :title, "キャンペーン名" %><br />
-    <%= f.text_field :title, id: "title" %>
-  </div>
-  <div class="field">
-    <%= f.label :content, "キャンペーン内容" %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
-    <%= f.label :start_time, "キャンペーン開始日" %><br />
-    <%= f.date_select :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time, "キャンペーン終了日" %><br />
-    <%= f.date_select :end_time %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile_id, "携帯キャリア" %><br />
-    <%= f.collection_select(:mobile_id, Mobile.all, :id, :Mobile, {}, {class: "select-box"}) %>
-  </div>
-    <div class="field">
-    <%= f.label :image, "キャンペーンの画像" %><br />
-    <%= f.file_field :image, id:"task_image" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "SEND", class: :form__btn %>
-  </div>
-<% end %>
+<div class="form-wrapper">
+  <%= form_with(model: @task, local: true, class: "form__wrapper") do |f| %>
+    <div class="form-main">
+      <div class="field">
+        <%= f.label :title, "キャンペーン名", class: "form__label" %><br />
+        <%= f.text_field :title, id: "title", class: "form__input" %>
+      </div>
+      <div class="field">
+        <%= f.label :content, "キャンペーン内容", class: "form__label" %><br />
+        <%= f.text_area :content, class: "form__textarea" %>
+      </div>
+      <div class="field">
+        <%= f.label :start_time, "キャンペーン開始日", class: "form__label" %><br />
+        <%= f.date_select :start_time, class: "form__select" %>
+      </div>
+      <div class="field">
+        <%= f.label :end_time, "キャンペーン終了日", class: "form__label" %><br />
+        <%= f.date_select :end_time, class: "form__select" %>
+      </div>
+      <div class="field">
+        <%= f.label :mobile_id, "携帯キャリア", class: "form__label" %><br />
+        <%= f.collection_select(:mobile_id, Mobile.all, :id, :Mobile, {class: "select-box form__select"}) %>
+      </div>
+      <div class="field">
+        <%= f.label :image, "キャンペーンの画像", class: "form__label" %><br />
+        <%= f.file_field :image, id: "task_image", class: "form__input" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "SEND", class: "form__btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>

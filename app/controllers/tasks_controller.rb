@@ -38,6 +38,14 @@ class TasksController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    if params[:keyword].present?
+      @tasks = Task.search(params[:keyword])
+    else
+      redirect_to root_path
+    end
+  end
+
 
   private
   def task_params

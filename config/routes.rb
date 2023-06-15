@@ -4,5 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'tasks#index'
-  resources :tasks
+  resources :tasks do
+    collection do
+      get 'search'
+    end
+  end
 end
