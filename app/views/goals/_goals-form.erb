@@ -10,9 +10,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" name="goal_name"></td>
-        <td><input type="number" name="goal_number[]" /></td>
-        <td><input type="number" name="achievement_number[]" /></td>
+        <td><%= f.text_field 'goal[goal_name]' %></td>
+        <td><%= f.number_field 'goal[goal_number][]' %></td>
+        <td><%= f.number_field 'goal[achievement_number][]' %></td>
         <td><span class="achievement-rate">0%</span></td>
       </tr>
     </tbody>

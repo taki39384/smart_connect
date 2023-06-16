@@ -5,13 +5,13 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
-    
+    binding.pry
     @goal.save
     redirect_to root_path
   end
 
   private
   def goal_params
-    params.require(:goal).permit(:goal_name, :goal_number, :achievement_number).merge(user_id: current_user.id)
+    params.require(:goal).permit.permit(:goal_name, { goal_number: [] }, { achievement_number: [] }).merge(user_id: current_user.id)
   end
 end
