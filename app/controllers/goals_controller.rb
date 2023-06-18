@@ -12,6 +12,6 @@ class GoalsController < ApplicationController
 
   private
   def goal_params
-    params.require(:goal).permit(:goal_name, goal_number: [] , achievement_number: []).merge(user_id: current_user.id)
+    params.require(:goal).permit(:goal_name, :goal_number , :achievement_number).merge(user_id: current_user.id)
   end
 end
