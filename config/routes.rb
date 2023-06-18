@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'tasks#index'
+  resources :goals, only: [:create] 
   resources :tasks do
     collection do
       get 'search'

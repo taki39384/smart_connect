@@ -1,4 +1,4 @@
-<form id="goals-form">
+<%= form_with(url: goals_path, method: :post, local: true, class: "goals-form") do |f| %>
   <table id="goals-table">
     <thead>
       <tr>
@@ -10,13 +10,13 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" name="goal_name[]" /></td>
-        <td><input type="number" name="goal_number[]" /></td>
-        <td><input type="number" name="achievement_number[]" /></td>
+        <td><%= f.text_field :'goal[goal_name]' %></td>
+        <td><%= f.number_field :'goal[goal_number]' %></td>
+        <td><%= f.number_field :'goal[achievement_number]' %></td>
         <td><span class="achievement-rate">0%</span></td>
       </tr>
     </tbody>
   </table>
   <button type="button" id="add-goal">項目を追加</button>
   <button type="submit" id="add-storage">保存</button>
-</form>
+<% end %>
