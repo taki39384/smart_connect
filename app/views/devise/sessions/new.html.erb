@@ -1,6 +1,5 @@
 <div class="contents row">
   <div class="container">
-  <%= render "shared/header" %>
 
     <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <div class="field">
@@ -20,11 +19,15 @@
         </div>
       <% end -%>
 
-      <div class="actions">
-        <%= f.submit "Log in" %>
+      <div class="field">
+        <%= f.submit "Log in", class: "btn btn-outline-primary" %>
       </div>
-
-      <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, class: "text-decoration-none, btn btn-outline-danger", method: :post%>
+      <div class="field">
+        <%= link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, class: "text-decoration-none, btn btn-outline-danger", method: :post%>
+      </div>
+      <div class="field">
+        <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, class: "text-decoration-none, btn btn-outline-primary ", method: :post%>
+      </div>
     <% end %>
   </div>
 </div>
