@@ -16,11 +16,6 @@
             <%= link_to '戻る', root_path, class: :prototype__btn %>
         </div>
       <%# // 投稿者とログインしているユーザーが同じであれば上記を表示する %>
-      <div class="prototype__image">
-        <% @task.tags.each do |tag| %>
-          <span><%= tag.tag_name %></span>
-        <% end %>
-      </div>
       <div class="prototype__body">
         <div class="prototype__detail">
           <p class="detail__title">キャンペーン内容</p>
@@ -33,6 +28,13 @@
           <p class="detail__message">
             <%= @task.mobile.Mobile %>
           </p>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="tag">
+            <% @task.tags.each do |tag| %>
+              <span><%= tag.tag_name %></span>
+            <% end %>
+          </div>
         </div>
         <div class="prototype__image">
             <%= image_tag @task.image if @task.image.attached? %>
