@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_16_051017) do
+ActiveRecord::Schema.define(version: 2023_06_19_032143) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,21 @@ ActiveRecord::Schema.define(version: 2023_06_16_051017) do
     t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "task_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "task_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_task_tag_relations_on_tag_id"
+    t.index ["task_id"], name: "index_task_tag_relations_on_task_id"
+  end
+
   create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
@@ -80,5 +95,7 @@ ActiveRecord::Schema.define(version: 2023_06_16_051017) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "goals", "users"
   add_foreign_key "sns_credentials", "users"
+  add_foreign_key "task_tag_relations", "tags"
+  add_foreign_key "task_tag_relations", "tasks"
   add_foreign_key "tasks", "users"
 end
