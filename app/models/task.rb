@@ -11,8 +11,8 @@ class Task < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  has_many :task_tag_relations
-  has_many :tags, through: :task_tag_relations
+  has_many :task_tag_relations, dependent: :destroy
+  has_many :tags, through: :task_tag_relations, dependent: :destroy
 
   def self.search(search)
     if search != ""
