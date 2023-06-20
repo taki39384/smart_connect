@@ -1,3 +1,17 @@
 <div class="container py-4">
   <%= render "shared/header" %>
+  <div class="contents" id="contents_area">
+    <%= render partial: 'article', collection: @articles %>
+  </div>
+</div>
+<div class="form-area">
+  <div class="form">
+    <%= form_with(model: @article, local: true, id: "new_article") do |f| %>
+      <%= f.text_field :text, class: "article_form", id: "article_text" %>
+      <div id="char_num">
+        0文字
+      </div>
+      <%= f.submit "GET" , id: "submit_btn"%>
+    <% end %>
+  </div>
 </div>
