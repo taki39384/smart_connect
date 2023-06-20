@@ -25,63 +25,37 @@ https://smart-connect.onrender.com
 
 
 # アプリケーションを作成した背景
-家電量販店で携帯販売の提案をするときに、各キャリアキャンペーン期間がバラバラなので、それを一元管理できたらもっと提案しやすい環境になるのではないかと考えた。
+家電量販店での携帯販売の提案が、各キャリアキャンペーン期間がバラバラであり、モバイル情報過多で覚えるのが大変という課題がある。このアプリケーションは、その課題解決をして、もっとより良い案内ができ獲得実績向上を目指せるものである。
+
+# 洗い出した要件
+[要件定義書](https://docs.google.com/spreadsheets/d/1PKDI-YDM1qh6pzkRlcT_2DXz8lBpSfiJ_6Bp4SIEkX0/edit#gid=982722306)
+
+# 実装した機能についての画像やGIFおよびその説明
+〜〜  画像やGIF、説明を記載  〜〜
+
+# 実装予定の機能
+タグ検索機能
+Notion API導入
+
+# データベース設計
 
 
+# 画面遷移図
 
 
+# 開発環境
+- HTML&CSS
+- Bootstrap
+- Ruby
+- Rails
+- JavaScript
+- Render
+- テスト
+- VS Code
+- GiT hub
+- Notion
+
+# ローカルでの動作方法
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## users テーブル
-| column             | type   | options                   |
-| ------------------ | ------ | --------------------------|
-| nickname           | string | null: false               |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
-
-### Association
-- has_many :tasks
-- has_many :sns_credentials
-
-
-
-## sns_credentials テーブル
-| column             | type        | options                   |
-| ------------------ | ------      | --------------------------|
-| provider           | string      | null: false               |
-| uid                | string      | null: false, unique: true |
-| user               | references  | foreign_key: true         |
-
-### Association
-- belongs_to :user
-
-
-
-## tasks テーブル
-| column             | type        | options                                |
-| ------------------ | ------      | -------------------------------------- |
-| title              | string      | null: false                            |
-| content            | string      | null: false                            |
-| mobile_id          | integer     | null: false                            |
-| start_time         | datetime    | null: false                            |
-| end_time           | datetime    | null: false                            |
-| user               | references  | null: false, foreign_key: true         |
-
-### Association
-- belongs_to :user
+# 工夫したポイント
