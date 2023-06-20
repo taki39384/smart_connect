@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
   root to: 'tasks#index'
   resources :goals
+  resources :articles
   resources :tasks do
     collection do
       get 'search'
