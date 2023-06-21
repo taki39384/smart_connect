@@ -34,12 +34,12 @@ body {
   min-width: 300px;
   width: 80%;
   height: calc(100vh - 140px);
-  // background-color: white;
   background-color: $main_background_color;
   margin-top: 70px;
   margin-left: 10%;
   text-align: center;
   overflow: scroll;
+
   .article {
     width: 60%;
     display: inline-block;
@@ -50,18 +50,20 @@ body {
     border-radius: 5px;
     color: #444;
   }
+
   .article:last-child {
     margin-bottom: 30px;
   }
 }
 
 .form-area {
-  height: 70px;
+  height: 90px;
   width: 100%;
   position: fixed;
   bottom: 0;
   background-color: $header_color;
   text-align: center;
+
   .form {
     height: 30px;
     width: 80%;
@@ -70,7 +72,8 @@ body {
 
     .article_form {
       height: 30px;
-      width: 620px;
+      width: 100%;
+      max-width: 620px;
       font-size: 16px;
       border-style: none;
       padding: 0 20px;
@@ -80,10 +83,11 @@ body {
       display: inline-block;
       color: #eee;
     }
+
     input[type="submit"] {
       border-style: none;
       line-height: 25px;
-      margin-left: 50px;
+      margin-left: 10px;
     }
   }
 }
@@ -92,7 +96,7 @@ body {
   height: 50px;
   width: 50px;
   position: fixed;
-  right: 170px;
+  right: 10%;
   bottom: 100px;
   background-color: #888;
   border-radius: 50%;
