@@ -7,7 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("goals-form")
+require("../goals-form")
+require("../post")
 import "bootstrap"
 import "../stylesheets/application"
 

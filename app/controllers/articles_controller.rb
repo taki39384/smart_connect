@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   def create
     article = Article.new(article_params)
     if article.save
-      redirect_to new_article_url
+      render json: {article: article} 
     end
   end
 
