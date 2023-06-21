@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("../goals-form")
 require("../post")
+require("../count")
 import "bootstrap"
 import "../stylesheets/application"
 
