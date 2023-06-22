@@ -13,6 +13,6 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:text)
+    params.require(:article).permit(:text).merge(user_id: current_user.id)
   end
 end

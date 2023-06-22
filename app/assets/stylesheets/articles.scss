@@ -2,34 +2,6 @@ $header_color: #00306e;
 $background_color: #fafafa;
 $main_background_color: #fff;
 
-* {
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: $background_color;
-}
-
-.header {
-  height: 70px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  background-color: $header_color;
-}
-
 .contents {
   min-width: 300px;
   width: 80%;
