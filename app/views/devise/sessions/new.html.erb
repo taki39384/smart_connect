@@ -1,5 +1,5 @@
-<div class="contents row">
-<%= render "shared/header" %>
+<div class="container py-4">
+  <%= render "shared/header" %>
   <div class="container">
     <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <div class="field">

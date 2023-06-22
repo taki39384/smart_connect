@@ -1,0 +1,20 @@
+<div class="container py-4">
+  <%= render "shared/header" %>
+  <div class="contents" id="contents_area">
+    <%= render partial: 'article', collection: @articles %>
+  </div>
+</div>
+<div class="form-area">
+  <div class="form">
+    <%= form_with(model: @article, local: true, id: "new_article") do |f| %>
+      <%= f.text_area :text, class: "article_form", id: "article_text" %>
+      <div id="char_num">
+        0文字
+      </div>
+      <label>
+        <%= button_tag "選択", id: "tag_button", class: "btn btn-outline-primary" %>
+      </label>
+      <%= f.submit "POST" , id: "submit_btn", class: "btn btn-outline-danger"%>
+    <% end %>
+  </div>
+</div>
