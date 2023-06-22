@@ -1,4 +1,4 @@
-function post (){
+document.addEventListener("turbolinks:load", () => {
   const submit = document.getElementById("submit_btn");
   submit.addEventListener("click", (e) => { 
     const formData = new FormData(document.getElementById("new_article"));
@@ -16,14 +16,13 @@ function post (){
       const articleText = document.getElementById("article_text");
       const HTML = `
         <div class="article">
-          ${ item.text }
+          ${item.text}
         </div>`;
       contentsArea.insertAdjacentHTML("afterbegin", HTML);
       articleText.value = "";
     };
-    const charNum  = document.getElementById("char_num");
+    const charNum = document.getElementById("char_num");
     charNum.innerHTML = "0文字"; 
     e.preventDefault();
   });
-}
-window.addEventListener('load', post);
+});
